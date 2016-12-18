@@ -44,7 +44,7 @@ public class Sender extends AbstractVerticle {
       // Deploy succeed
       if (deployResult.succeeded()) {
         // Send a message to [local receiver] every 2 second
-        getVertx().setPeriodic(2000, _id -> {
+        getVertx().setPeriodic(10000, _id -> {
           eventBus.send("local-message-receiver", localMessage, reply -> {
             if (reply.succeeded()) {
               CustomMessage replyMessage = (CustomMessage) reply.result().body();

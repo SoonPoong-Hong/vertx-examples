@@ -20,7 +20,9 @@ public class Sender extends AbstractVerticle {
     EventBus eb = vertx.eventBus();
 
     // Send a message every second
+    IntHolder h =new IntHolder();
 
-    vertx.setPeriodic(1000, v -> eb.publish("news-feed", "Some news!"));
+    vertx.setPeriodic(1000, v -> eb.publish("news-feed", "some => " + h.get() ));
   }
 }
+

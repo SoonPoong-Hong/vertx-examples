@@ -9,7 +9,8 @@
   <version>3.3.3</version>
 
   <properties>
-    <tools.jar>${java.home}/../lib/tools.jar</tools.jar>
+<!--     <tools.jar>${java.home}/../lib/tools.jar</tools.jar> -->
+    <tools.jar>C:\Program Files\Java\jdk1.8.0_92\lib\tools.jar</tools.jar>
   </properties>
 
   <dependencies>

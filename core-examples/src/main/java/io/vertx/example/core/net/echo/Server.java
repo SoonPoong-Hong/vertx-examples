@@ -16,7 +16,7 @@ public class Server extends AbstractVerticle {
 
   @Override
   public void start() throws Exception {
-
+//vertx.createHttpClient();
     vertx.createNetServer().connectHandler(sock -> {
 
       // Create a pump

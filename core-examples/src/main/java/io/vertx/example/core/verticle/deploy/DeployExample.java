@@ -20,6 +20,8 @@ public class DeployExample extends AbstractVerticle {
 
     System.out.println("Main verticle has started, let's deploy some others...");
 
+//    DeploymentOptions deOp = null;
+//    deOp.setInstances(3);
     // Different ways of deploying verticles
 
     // Deploy a verticle and don't wait for it to start
@@ -43,12 +45,14 @@ public class DeployExample extends AbstractVerticle {
           } else {
             res2.cause().printStackTrace();
           }
-        });
+        })        ;
 
       } else {
         res.cause().printStackTrace();
       }
-    });
+    })
+
+    ;
 
     // Deploy specifying some config
     JsonObject config = new JsonObject().put("foo", "bar");

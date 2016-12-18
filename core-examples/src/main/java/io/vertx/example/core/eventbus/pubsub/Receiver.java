@@ -20,7 +20,7 @@ public class Receiver extends AbstractVerticle {
 
     EventBus eb = vertx.eventBus();
 
-    eb.consumer("news-feed", message -> System.out.println("Received news: " + message.body()));
+    eb.consumer("news-feed", message -> System.out.println("reeived : " + message.body()));
 
     System.out.println("Ready!");
   }

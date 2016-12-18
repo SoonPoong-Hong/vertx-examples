@@ -22,7 +22,7 @@ public class Server extends AbstractVerticle {
   public void start() throws Exception {
     vertx.createHttpServer().requestHandler(req -> {
       final String name = ManagementFactory.getRuntimeMXBean().getName();
-      req.response().end("Happily served by " + name);
+      req.response().end("Happily served by " + name + " :: " + this);
     }).listen(8080);
   }
 }
