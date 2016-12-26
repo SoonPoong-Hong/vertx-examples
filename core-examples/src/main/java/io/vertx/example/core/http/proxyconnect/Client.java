@@ -21,10 +21,11 @@ public class Client extends AbstractVerticle {
   public void start() throws Exception {
     HttpClientRequest request = vertx.createHttpClient(new HttpClientOptions().
         setProxyOptions(new ProxyOptions()
-            .setType(ProxyType.HTTP)
-            .setHost("localhost")
-            .setPort(8080)))
-        .put(8282, "localhost", "/", resp -> {
+			            .setType(ProxyType.HTTP)
+			            .setHost("localhost")
+			            .setPort(8080)))
+    	.put(8282, "localhost", "/"
+    			, resp -> {
       System.out.println("Got response " + resp.statusCode());
       resp.bodyHandler(body -> System.out.println("Got data " + body.toString("ISO-8859-1")));
     });
