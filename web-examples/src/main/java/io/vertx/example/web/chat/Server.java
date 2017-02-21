@@ -38,6 +38,11 @@ public class Server extends AbstractVerticle {
       .addInboundPermitted(new PermittedOptions().setAddress("chat.to.server"))
       .addOutboundPermitted(new PermittedOptions().setAddress("chat.to.client"));
 
+    router.route().handler(ctx -> {
+    	System.out.printf("== request [%s] \n", ctx.request().absoluteURI());
+    	ctx.next();
+    });
+
     // Create the event bus bridge and add it to the router.
     SockJSHandler ebHandler = SockJSHandler.create(vertx).bridge(opts);
     router.route("/eventbus/*").handler(ebHandler);

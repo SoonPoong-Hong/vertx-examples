@@ -22,11 +22,11 @@ public class Proxy extends AbstractVerticle {
 		HttpClient client = vertx.createHttpClient(new HttpClientOptions());
 		vertx.createHttpServer().requestHandler(req -> {
 			System.out.println("===== Proxying request: " + req.remoteAddress() + "::" +  req.uri());
-			HttpClientRequest c_req = client.request(req.method(), 8080, "localhost", req.uri(), c_res -> {
+			HttpClientRequest c_req = client.request(req.method(), 8081, "localhost", req.uri(), c_res -> {
 				System.out.println("== Proxying response: " + c_res.statusCode());
 				MultiMap headers = c_res.headers();
 				System.out.println("== Proxying response headers: ");
-				headers.forEach(e-> System.out.println("\t" + e));
+//				headers.forEach(e-> System.out.println("\t" + e));
 				System.out.println("== header 끝.");
 
 				req.response().setChunked(true);

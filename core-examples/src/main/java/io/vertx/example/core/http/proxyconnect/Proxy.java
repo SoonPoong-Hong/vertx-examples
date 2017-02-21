@@ -33,6 +33,7 @@ public class Proxy extends AbstractVerticle {
 
         System.out.println("Connecting to proxy " + proxyAddress);
         client.connect(port, host, ar -> {
+//        client.connect(8081, "localhost", ar -> {
 
           if (ar.succeeded()) {
             System.out.println("Connected to proxy");
@@ -66,6 +67,6 @@ public class Proxy extends AbstractVerticle {
       } else {
         req.response().setStatusCode(405).end();
       }
-    }).listen(8080);
+    }).listen(80);
   }
 }

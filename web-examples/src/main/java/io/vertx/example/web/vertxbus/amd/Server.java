@@ -33,8 +33,7 @@ public class Server extends AbstractVerticle {
     Router router = Router.router(vertx);
 
     // Allow events for the designated addresses in/out of the event bus bridge
-    BridgeOptions opts = new BridgeOptions()
-      .addOutboundPermitted(new PermittedOptions().setAddress("feed"));
+    BridgeOptions opts = new BridgeOptions() .addOutboundPermitted(new PermittedOptions().setAddress("feed"));
 
     // Create the event bus bridge and add it to the router.
     SockJSHandler ebHandler = SockJSHandler.create(vertx).bridge(opts);
